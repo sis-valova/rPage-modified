@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        .next-prev a {
+            display: block;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.428571429;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .next-prev a:hover, 
+        .next-prev a:focus {
+            background-color: #eee;
+        }
+        .pagination-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative; 
+            width: 100%; 
+            background-color: #f5f5f5; 
+            margin: 0 auto; 
+            text-align: center; 
+            margin-top: 250px;
+            padding: 0 15px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="pagination-wrapper">
+            <div class="next-prev"><a href="#">&laquo;</a></div>
+            <ul class="pagination"> 
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">9</a></li>
+                <li class="active"><span>10</span></li>
+            </ul>
+            <div class="next-prev"><a href="#">&raquo;</a></div>
+        </div>
+    </div> 
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="../responsive-paginate.js"></script>
+    <script>
+        $(document).ready(function () {
+            /****** Delete this ******/
+            var pages_num = 10;
+            var pages = '';
+            for(var i = 1, len = pages_num; i <= len; i++) {
+                if(i === 10) {
+                    pages += '<li class="active"><a href=""><span>'+i+'</span></a></li>';
+                    continue;
+                }
+                pages += '<li><a href="">'+i+'</a></li>';
+            }
+            $('.pagination').html(pages);
+            /****** Delete this ******/
+            
+            
+            $(".pagination").rPage({
+                gap: 100, // min 90
+                resize_time: 20
+            });
+        });
+
+        
+    </script>
+</body>
+</html>
