@@ -1,15 +1,91 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <style>
+        /* From bootstrap */
+        .pagination,
+        .pagination-with-gap {
+            display: inline-block;
+            padding-left: 0;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .pagination>li>a:focus, 
+        .pagination>li>a:hover, 
+        .pagination>li>span:focus, 
+        .pagination>li>span:hover,
+        .pagination-with-gap>li>a:focus, 
+        .pagination-with-gap>li>a:hover, 
+        .pagination-with-gap>li>span:focus, 
+        .pagination-with-gap>li>span:hover {
+            z-index: 2;
+            color: #23527c;
+            background-color: #eee;
+            border-color: #ddd;
+        }
+        .pagination>li>a, 
+        .pagination>li>span,
+        .pagination-with-gap>li>a, 
+        .pagination-with-gap>li>span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        .pagination>.active>a, 
+        .pagination>.active>a:focus, 
+        .pagination>.active>a:hover, 
+        .pagination>.active>span, 
+        .pagination>.active>span:focus, 
+        .pagination>.active>span:hover,
+        .pagination-with-gap>.active>a, 
+        .pagination-with-gap>.active>a:focus, 
+        .pagination-with-gap>.active>a:hover, 
+        .pagination-with-gap>.active>span, 
+        .pagination-with-gap>.active>span:focus, 
+        .pagination-with-gap>.active>span:hover {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+        .pagination>li:first-child>a, 
+        .pagination>li:first-child>span,
+        .pagination-with-gap>li:first-child>a, 
+        .pagination-with-gap>li:first-child>span {
+            margin-left: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .pagination>li:last-child>a, 
+        .pagination>li:last-child>span,
+        .pagination-with-gap>li:last-child>a, 
+        .pagination-with-gap>li:last-child>span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        
+        
+        
+        
+        .next-prev {
+            margin: 20px 0;
+        }
         .next-prev a {
             display: block;
             padding: 6px 12px;
-            margin-left: -1px;
             line-height: 1.428571429;
             text-decoration: none;
             background-color: #fff;
@@ -20,47 +96,159 @@
         .next-prev a:focus {
             background-color: #eee;
         }
+        .next {
+            float: right;
+        }
+        .prev {
+            float: left;
+        }
+        .pagination-wrapper ul {
+            list-style: none;
+        }
         .pagination-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             position: relative; 
             width: 100%; 
             background-color: #f5f5f5; 
             margin: 0 auto; 
             text-align: center; 
-            margin-top: 250px;
+            margin-top: 20px;
             padding: 0 15px;
+            overflow: hidden;
         }
+        .with-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .flex-center {
+            justify-content: center;
+        }
+        
+        .pagination-with-gap li {
+            float: left;
+
+        }
+        
         
     </style>
 </head>
 <body>
-    <div class="container"> 
-        <div class="pagination-wrapper">
-            <div class="next-prev"><a href="#">&laquo;</a></div>
-            <ul class="pagination"> 
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
-                <li><a href="">6</a></li>
-                <li><a href="">7</a></li>
-                <li><a href="">8</a></li>
-                <li><a href="">9</a></li>
-                <li class="active"><span>10</span></li>
-            </ul>
-            <div class="next-prev"><a href="#">&raquo;</a></div>
+    <div class="container">
+        <h1>With flexbox</h1>
+        <div class="row">
+            <div class="pagination-wrapper with-flex">
+                <div class="next-prev prev">
+                    <a href="#">
+                        &laquo;
+                    </a>
+                </div>
+                <ul class="pagination with-flex">
+                    <li><a href="">1</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">6</a></li>
+                    <li class="active"><a href=""><span>7</span></a></li>
+                    <li><a href="">8</a></li>
+                    <li><a href="">9</a></li>
+                    <li><a href="">10</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">20</a></li>
+                </ul>
+                <div class="next-prev next">
+                    <a href="#">
+                        &raquo;
+                    </a>
+                </div>
+            </div>
         </div>
-    </div> 
-    <script src="js/jquery-1.10.2.min.js"></script>
+        <div class="row">
+            <div class="pagination-wrapper with-flex flex-center">
+                <div class="next-prev prev">
+                    <a href="#">
+                        &laquo;
+                    </a>
+                </div>
+                <ul class="pagination-with-gap with-flex">
+                    <li><a href="">1</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">6</a></li>
+                    <li class="active"><a href=""><span>7</span></a></li>
+                    <li><a href="">8</a></li>
+                    <li><a href="">9</a></li>
+                    <li><a href="">10</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">20</a></li>
+                </ul>
+                <div class="next-prev next">
+                    <a href="#">
+                        &raquo;
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h1>With float left and right</h1>
+        <div class="row">
+            <div class="pagination-wrapper">
+                <div class="next-prev prev">
+                    <a href="#">
+                        &laquo;
+                    </a>
+                </div>
+                <ul class="pagination">
+                    <li><a href="">1</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">6</a></li>
+                    <li class="active"><a href=""><span>7</span></a></li>
+                    <li><a href="">8</a></li>
+                    <li><a href="">9</a></li>
+                    <li><a href="">10</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">20</a></li>
+                </ul>
+                <div class="next-prev next">
+                    <a href="#">
+                        &raquo;
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="pagination-wrapper">
+                <div class="next-prev prev">
+                    <a href="#">
+                        &laquo;
+                    </a>
+                </div>
+                <ul class="pagination-with-gap">
+                    <li><a href="">1</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">6</a></li>
+                    <li class="active"><a href=""><span>7</span></a></li>
+                    <li><a href="">8</a></li>
+                    <li><a href="">9</a></li>
+                    <li><a href="">10</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li><a href="">20</a></li>
+                </ul>
+                <div class="next-prev next">
+                    <a href="#">
+                        &raquo;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="../responsive-paginate.js"></script>
     <script>
         $(document).ready(function () {
             /****** Delete this ******/
-            var pages_num = 10;
+            var pages_num = 25;
             var pages = '';
             for(var i = 1, len = pages_num; i <= len; i++) {
                 if(i === 10) {
@@ -70,16 +258,21 @@
                 pages += '<li><a href="">'+i+'</a></li>';
             }
             $('.pagination').html(pages);
+            $('.pagination-with-gap').html(pages);
             /****** Delete this ******/
             
             
-            $(".pagination").rPage({
-                gap: 100, // min 90
-                resize_time: 20
+            $('.pagination').rPage({
+                gap: 0, // Gap between previous and next button and pagination class
+                resize_time: 20 // How often in milliseconds to refresh plugin on resize
             });
-        });
+            
+            $('.pagination-with-gap').rPage({
+                gap: 400, // Gap between previous and next button and pagination class
+                resize_time: 20 // How often in milliseconds to refresh plugin on resize
+            });
 
-        
+        });
     </script>
 </body>
 </html>
