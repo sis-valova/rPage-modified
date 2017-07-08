@@ -2,7 +2,8 @@
  * A plugin for making Bootstrap's pagination more responsive
  * https://github.com/auxiliary/rpage
  *
- *
+ * This is a modified version of original plugin
+ * https://github.com/sis-valova/rPage-modified
  */
 
 (function ($) {
